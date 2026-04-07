@@ -1,0 +1,35 @@
+{
+  "name": "Tauri-Skeleton-2026",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/.claude-session,target=/root/.claude,type=bind,consistency=cached",
+    "source=Tauri-Skeleton-2026-android-sdk,target=/opt/android-sdk,type=volume"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "tauri-apps.tauri-vscode",
+        "rust-lang.rust-analyzer",
+        "biomejs.biome",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "remoteUser": "root",
+  "remoteEnv": {
+    "DISPLAY": "host.docker.internal:0",
+    "ANDROID_HOME": "/opt/android-sdk",
+    "NDK_HOME": "/opt/android-sdk/ndk/27.2.12479018"
+  },
+  "containerEnv": {
+    "WEBKIT_DISABLE_COMPOSITING_MODE": "1"
+  }
+}
